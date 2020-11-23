@@ -3,15 +3,21 @@
     <mat-card-header class="team-header">
       <div mat-card-avatar class="team-logo"></div>
       <div>
-        <mat-card-title class="team-name">Shiba Inu</mat-card-title>
-        <mat-card-subtitle class="team-award">Dog Breed</mat-card-subtitle>
+        <mat-card-title class="team-name"
+          >{{winnerTeam?.teamBranding?.teamName}}</mat-card-title
+        >
+        <mat-card-subtitle class="team-award">
+          <div *ngFor="let teamOwner of winnerTeam?.profiles?.TeamOwner">
+            {{teamOwner.}}
+          </div>
+        </mat-card-subtitle>
       </div>
     </mat-card-header>
     <img
       class="team-img"
       mat-card-image
-      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-      [alt]="winnerTeam?.teamBranding?.teamName ? winnerTeam?.teamBranding?.teamName : 'Team Logo'"
+      [src]="winnerTeam?.teamBranding?.teamImg"
+      [alt]="winnerTeam?.teamBranding?.teamName ? winnerTeam?.teamBranding?.teamName : 'Team Image'"
     />
     <mat-card-content class="content">
       <p>
@@ -24,6 +30,6 @@
     </mat-card-actions>
   </mat-card>
   <ng-template #no_team>
-    <div>Please enter guid on the left to find out your tea</div>
+    <div>Please enter guid on the left to find out your team!</div>
   </ng-template>
 </div>
