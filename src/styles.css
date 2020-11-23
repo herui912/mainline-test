@@ -1,0 +1,26 @@
+/* Add application styles & imports to this file! */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial";
+}
+.container {
+  max-width: 1600px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.ml-h1 {
+  font-size: 60px;
+  line-height: 60px;
+}
+.landing .mat-raised-button {
+  color: #244682;
+  font-weight: bold;
+  min-width: 106px;
+  height: 40px;
+}
+.mr-2 {
+  margin-right: 24px;
+}

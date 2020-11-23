@@ -1,0 +1,11 @@
+.landing {
+  &.ml-bg {
+    background-image: url(/assets/shapes.svg),
+      linear-gradient(105.18deg, #1e3c72 -2.04%, #2a5298 107.42%);
+    min-height: 100vh;
+    width: 100vw;
+  }
+  .content {
+    padding: 0 16px;
+  }
+}

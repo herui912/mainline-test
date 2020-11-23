@@ -1,0 +1,16 @@
+.find-your-team {
+  color: #ffffff;
+  margin-bottom: 20px;
+  max-width: 576px;
+  .bullet {
+    font-size: 18px;
+  }
+  .search-icon {
+    font-size: 28px;
+    transform: scaleX(-1);
+  }
+  .search-field,
+  .search-btn {
+    width: 100%;
+  }
+}
