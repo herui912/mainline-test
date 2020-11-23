@@ -2,10 +2,17 @@
   <div class="container">
     <app-header></app-header>
     <div class="content">
-      <app-find-your-team
-        (searchClicked)="searchClicked($event)"
-      ></app-find-your-team>
-      <app-win-team></app-win-team>
+      <div
+        fxLayout="column"
+        fxLayout.gt-sm="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="2%"
+      >
+        <app-find-your-team
+          (searchClicked)="searchClicked($event)"
+        ></app-find-your-team>
+        <app-win-team [winnerTeam]="winnerTeam"></app-win-team>
+      </div>
     </div>
   </div>
 </div>

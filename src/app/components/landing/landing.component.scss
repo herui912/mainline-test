@@ -1,11 +1,26 @@
 .landing {
   &.ml-bg {
-    background-image: url(/assets/shapes.svg),
+    background-image: url(https://raw.githubusercontent.com/herui912/mainline-test/master/src/app/assets/shapes.svg),
+      url(https://raw.githubusercontent.com/herui912/mainline-test/master/src/app/assets/patern.svg),
       linear-gradient(105.18deg, #1e3c72 -2.04%, #2a5298 107.42%);
     min-height: 100vh;
     width: 100vw;
+    background-size: cover, auto, cover;
+    background-repeat: no-repeat;
+    background-position: center, right 14.17% top 15.4%, center;
+  }
+  .container {
+    display: grid;
+    grid-template-rows: repeat(4, 25%);
+    min-height: 100vh;
   }
   .content {
     padding: 0 16px;
+    // margin: auto 0;
+  }
+  @media (max-width: 960px) {
+    .container {
+      display: block;
+    }
   }
 }
