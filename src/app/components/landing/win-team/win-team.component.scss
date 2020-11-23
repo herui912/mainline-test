@@ -6,10 +6,12 @@
   .team-header {
     margin: 0 8px;
     .team-logo {
-      background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
       background-size: cover;
       height: 60px;
       width: 60px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      object-fit: cover;
     }
     .team-name {
       font-size: 22px;
