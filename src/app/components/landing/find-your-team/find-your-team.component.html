@@ -6,7 +6,7 @@
 
 	<mat-form-field appearance="fill" class="search-field">
 		<mat-label>Input Search Criteria</mat-label>
-		<input matInput [(ngModel)]="searchVal" />
+		<input matInput [(ngModel)]="searchVal" (keyup.enter)="" />
 		<mat-icon matSuffix class="search-icon">search</mat-icon>
 	</mat-form-field>
 

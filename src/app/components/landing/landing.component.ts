@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../../service/api.service";
 const NOWINNER = "No Winner Yet.";
 const TEAMCANTFOUND = "Team can't found.";
+const APIERR = "Something wrong with looking for ";
 
 @Component({
   selector: "app-landing",
@@ -16,7 +17,6 @@ export class LandingComponent implements OnInit {
   ngOnInit() {}
 
   searchClicked(formatGuid: string) {
-    console.log("searchClicked");
     let guid = formatGuid.trim();
     this.errorMsg = "";
     if (guid) {
@@ -28,10 +28,8 @@ export class LandingComponent implements OnInit {
             this.errorMsg = NOWINNER;
             return;
           }
-          // console.log(winnerGuid, "winnerGuid");
           this.apiService.getLineupByGuid(winnerGuid).subscribe(
             lineUp => {
-              console.log("lineup", lineUp);
               const teamId = lineUp.teamId;
               if (teamId === undefined || teamId === null) {
                 this.errorMsg = TEAMCANTFOUND;
@@ -42,13 +40,22 @@ export class LandingComponent implements OnInit {
                   this.winnerTeam = team;
                   console.log(team);
                 },
-                teamErr => {}
+                teamErr => {
+                  this.errorMsg = this.buildErr("team");
+                  console.error(teamErr);
+                }
               );
             },
-            err => {}
+            linupErr => {
+              this.errorMsg = this.buildErr("lineup");
+              console.error(linupErr);
+            }
           );
         },
-        error => {}
+        bracketErr => {
+          this.errorMsg = this.buildErr("bracket");
+          console.error(bracketErr);
+        }
       );
     }
   }
@@ -73,5 +80,8 @@ export class LandingComponent implements OnInit {
     const finalMatch = roundView.matchViews[0];
     const isAWin = finalMatch.lineupAState === "Win";
     return isAWin ? finalMatch.lineupAGuid : finalMatch.lineupBGuid;
+  }
+  buildErr(name: string): string {
+    return APIERR + name + ".";
   }
 }

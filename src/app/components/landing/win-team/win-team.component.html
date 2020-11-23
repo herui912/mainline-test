@@ -1,11 +1,12 @@
 <div class="win-team">
 	<div *ngIf="winnerTeam === null; else has_error" class="alert alert-info">
-		<mat-icon class="alert-icon">info</mat-icon>
+		<mat-icon class="alert-icon arrow-left">chevron_left</mat-icon>
 		<h4>Please enter guid on the left to find out your team!</h4>
 	</div>
 	<ng-template #has_error>
 		<div *ngIf="errorMsg; else has_data" class="alert alert-error">
-			{{ errorMsg }}
+			<mat-icon class="alert-icon">info_outline</mat-icon>
+			<h4>Ooops... {{ errorMsg }}</h4>
 		</div>
 	</ng-template>
 	<ng-template #has_data>

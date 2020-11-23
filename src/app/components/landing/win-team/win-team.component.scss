@@ -54,3 +54,24 @@
     }
   }
 }
+
+.arrow-left {
+  margin: 0 30px 0 -10px;
+  animation: bounceLeft 2s infinite;
+}
+/* /left bounce */
+@keyframes bounceLeft {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(20px);
+  }
+  60% {
+    transform: translateX(10px);
+  }
+}
