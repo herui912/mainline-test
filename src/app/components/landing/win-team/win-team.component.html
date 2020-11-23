@@ -1,38 +1,53 @@
-<div>
-	<mat-card class="win-team-card" *ngIf="winnerTeam; else no_team">
-		<mat-card-header class="team-header">
-			<img
+<div class="win-team">
+	<div *ngIf="winnerTeam === null; else has_error" class="alert alert-info">
+		<mat-icon class="alert-icon">info</mat-icon>
+		<h4>Please enter guid on the left to find out your team!</h4>
+	</div>
+	<ng-template #has_error>
+		<div *ngIf="errorMsg; else has_data" class="alert alert-error">
+			{{ errorMsg }}
+		</div>
+	</ng-template>
+	<ng-template #has_data>
+		<mat-card class="win-team-card" *ngIf="winnerTeam;" [@slideInOut]>
+			<mat-card-header class="team-header">
+				<img
+        mat-card-avatar
         class="team-logo"
         mat-card-image
-        [src="winnerTeam?.teamBranding?.logo?"
+        [src]="winnerTeam?.teamBranding?.logo"
         [alt]="winnerTeam?.teamBranding?.teamName ? winnerTeam?.teamBranding?.teamName : 'Team Logo'"
       />
-			<div>
-				<mat-card-title class="team-name">{{winnerTeam?.teamBranding?.teamName}}</mat-card-title>
-				<mat-card-subtitle class="team-award">
-					<div *ngFor="let teamOwner of winnerTeam?.profiles?.TeamOwner">
-						{{teamOwner.handle}}
-					</div>
-				</mat-card-subtitle>
-			</div>
-		</mat-card-header>
-		<img
+				<div class="team-title">
+					<mat-card-title class="team-name">{{winnerTeam?.teamBranding?.teamName}}</mat-card-title>
+					<mat-card-subtitle class="team-owner">
+						<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2%">
+							<div *ngFor="let teamOwner of winnerTeam?.profiles?.TeamOwner" fxLayout="row"
+								fxLayoutAlign="start center" fxLayoutGap="1%">
+								<mat-icon *ngIf="teamOwner.handle">star</mat-icon>
+								{{teamOwner.handle}}
+							</div>
+						</div>
+					</mat-card-subtitle>
+				</div>
+			</mat-card-header>
+
+			<img
       class="team-img"
       mat-card-image
-      [src]="winnerTeam?.teamBranding?.teamImg"
+      [src]="winnerTeam?.teamBranding?.teamImg ? winnerTeam?.teamBranding?.teamImg : teamImgDefault"
       [alt]="winnerTeam?.teamBranding?.teamName ? winnerTeam?.teamBranding?.teamName : 'Team Image'"
     />
-		<mat-card-content class="content">
-			<p>
-				{{winnerTeam.description ? winnerTeam.description : teamDescDefault}}
-			</p>
-		</mat-card-content>
-		<mat-card-actions class="actions">
-			<button mat-raised-button class="like-btn">LIKE</button>
-			<button mat-raised-button>SHARE</button>
-		</mat-card-actions>
-	</mat-card>
-	<ng-template #no_team>
-		<div>Please enter guid on the left to find out your team!</div>
+			<mat-card-content class="content">
+				<p>
+					{{winnerTeam.description ? winnerTeam.description : teamDescDefault}}
+				</p>
+			</mat-card-content>
+
+			<mat-card-actions class="actions">
+				<button mat-raised-button class="like-btn">LIKE</button>
+				<button mat-raised-button>SHARE</button>
+			</mat-card-actions>
+		</mat-card>
 	</ng-template>
 </div>

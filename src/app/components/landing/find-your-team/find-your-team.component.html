@@ -1,19 +1,20 @@
 <div class="find-your-team">
-  <h1 class="ml-h1">{{title}}</h1>
-  <div *ngFor="let bullet of bullets">
-    <p class="bullet">- {{bullet}}</p>
-  </div>
+	<h1 class="ml-h1">{{title}}</h1>
+	<div *ngFor="let bullet of bullets">
+		<p class="bullet">- {{bullet}}</p>
+	</div>
 
-  <mat-form-field appearance="outline" class="search-field">
-    <mat-label>Input Search Criteria</mat-label>
-    <input matInput [(ngModel)]="searchVal" />
-    <mat-icon matSuffix class="search-icon">search</mat-icon>
-  </mat-form-field>
+	<mat-form-field appearance="fill" class="search-field">
+		<mat-label>Input Search Criteria</mat-label>
+		<input matInput [(ngModel)]="searchVal" />
+		<mat-icon matSuffix class="search-icon">search</mat-icon>
+	</mat-form-field>
 
-  <button
+	<button
     mat-raised-button
     class="search-btn"
     aria-label="Search"
+    [disabled]="!searchVal.length"
     (click)="search()"
   >
     SEARCH

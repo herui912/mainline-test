@@ -1,18 +1,12 @@
 <div class="ml-bg landing">
-  <div class="container">
-    <app-header></app-header>
-    <div class="content">
-      <div
-        fxLayout="column"
-        fxLayout.gt-sm="row"
-        fxLayoutAlign="space-between center"
-        fxLayoutGap="2%"
-      >
-        <app-find-your-team
-          (searchClicked)="searchClicked($event)"
-        ></app-find-your-team>
-        <app-win-team [winnerTeam]="winnerTeam"></app-win-team>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<app-header></app-header>
+		<div>
+			<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="space-between center" fxLayoutGap="2%"
+				class="content">
+				<app-find-your-team (searchClicked)="searchClicked($event)"></app-find-your-team>
+				<app-win-team [winnerTeam]="winnerTeam" [errorMsg]="errorMsg"></app-win-team>
+			</div>
+		</div>
+	</div>
 </div>

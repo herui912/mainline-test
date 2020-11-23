@@ -1,47 +1,56 @@
-.win-team-card {
-  max-width: 576px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  color: #151617;
-  .team-header {
-    margin: 0 8px;
-    .team-logo {
-      background-size: cover;
-      height: 60px;
-      width: 60px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      object-fit: cover;
+.win-team {
+  .win-team-card {
+    max-width: 576px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #151617;
+    .team-header {
+      margin: 8px 8px 24px 8px;
+      align-items: center;
+      .team-logo {
+        background-size: cover;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        object-fit: cover;
+        margin-left: 0;
+      }
+      .team-title {
+        margin-left: 0;
+        .team-name {
+          font-size: 22px;
+          font-weight: bold;
+          line-height: 1.05em;
+          margin: 2px 0;
+        }
+        .team-owner {
+          color: #a6a7aa;
+          font-weight: bold;
+          line-height: 1.05em;
+          margin: 2px 0;
+        }
+      }
     }
-    .team-name {
-      font-size: 22px;
-      font-weight: bold;
-      line-height: 1.05em;
+    .team-img {
+      height: 245px;
     }
-    .team-award {
-      color: #a6a7aa;
-      font-weight: bold;
-      line-height: 1.05em;
+    .content {
+      margin: 24px 8px;
+      font-size: 16px;
+      line-height: 28px;
     }
-  }
-  .team-img {
-    height: 245px;
-  }
-  .content {
-    margin: 24px 8px;
-    font-size: 16px;
-    line-height: 28px;
-  }
-  .mat-card-image {
-    margin: 0 -16px;
-  }
-  .actions {
-    background-color: #e7e7e7;
-    margin: 0 -16px -24px -16px;
-    padding: 24px;
-    border-radius: 0 0 8px 8px;
-    .like-btn {
-      margin-right: 16px;
+    .mat-card-image {
+      margin: 0 -16px;
+    }
+    .actions {
+      background-color: #e7e7e7;
+      margin: 0 -16px -16px -16px;
+      padding: 24px;
+      border-radius: 0 0 8px 8px;
+      .like-btn {
+        margin-right: 16px;
+      }
     }
   }
 }

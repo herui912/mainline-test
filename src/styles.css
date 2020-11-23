@@ -1,4 +1,4 @@
-/* Add application styles & imports to this file! */
+/* Global */
 body {
   margin: 0;
   padding: 0;
@@ -12,16 +12,55 @@ body {
 .spacer {
   flex: 1 1 auto;
 }
+.alert {
+  background-color: #fff3e0;
+  border-radius: 4px;
+  padding: 15px;
+  color: #fb8c00;
+}
+.alert-info {
+  color: #2196f3;
+  background: #e1f5fe;
+}
+
+.alert-success {
+  color: #31bfa6;
+  background: #e8f5e9;
+}
+
+.alert-error {
+  color: #f44336;
+  background: #ffebee;
+}
+
+.alert-icon {
+  font-size: 40px;
+  position: relative;
+  top: 10px;
+}
 .ml-h1 {
   font-size: 60px;
   line-height: 60px;
 }
+.mr-2 {
+  margin-right: 24px;
+}
+
+/* Rewrite material css */
 .landing .mat-raised-button {
   color: #244682;
   font-weight: bold;
   min-width: 106px;
   height: 40px;
 }
-.mr-2 {
-  margin-right: 24px;
+.search-field.mat-form-field-appearance-fill .mat-form-field-flex {
+  border: 2px solid white;
+  border-radius: 4px;
+}
+.search-field.mat-form-field-appearance-fill .mat-form-field-flex:hover {
+  border-color: transparent;
+}
+
+.search-field .mat-form-field-label {
+  color: white;
 }

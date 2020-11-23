@@ -10,7 +10,7 @@ const TEAMCANTFOUND = "Team can't found.";
 })
 export class LandingComponent implements OnInit {
   errorMsg: string = "";
-  winnerTeam: any;
+  winnerTeam: any = null;
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {}
@@ -18,7 +18,9 @@ export class LandingComponent implements OnInit {
   searchClicked(formatGuid: string) {
     console.log("searchClicked");
     let guid = formatGuid.trim();
+    this.errorMsg = "";
     if (guid) {
+      this.winnerTeam = undefined;
       this.apiService.getBracketByGuid(guid).subscribe(
         res => {
           const winnerGuid = this.findWinnerGuid(res);
