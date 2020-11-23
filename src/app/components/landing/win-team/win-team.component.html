@@ -11,13 +11,11 @@
       class="team-img"
       mat-card-image
       src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-      alt="Photo of a Shiba Inu"
+      [alt]="winnerTeam?.teamBranding?.teamName ? winnerTeam?.teamBranding?.teamName : 'Team Logo'"
     />
     <mat-card-content class="content">
       <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz
-        breeds of dog from Japan. A small, agile dog that copes very well with
-        mountainous terrain, the Shiba Inu was originally bred for hunting.
+        {{winnerTeam.description ? winnerTeam.description : teamDescDefault}}
       </p>
     </mat-card-content>
     <mat-card-actions class="actions">
